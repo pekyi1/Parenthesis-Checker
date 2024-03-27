@@ -39,7 +39,8 @@
        display: flex;
        flex-direction: row;
        align-items: center;
-      width: 150px;
+      white-space: nowrap;
+      width: 250px;
    }
 
    .result-container span {

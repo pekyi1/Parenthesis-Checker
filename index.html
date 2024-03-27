@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parentheses Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="loading-screen">
+        <div class="wrapper">
+            <svg>
+                <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                    Parenthesis Checker
+                </text>
+            </svg>
+        </div>
+    </div>
+    <div class="header">
+        <div id="text-container">
+            <p><span id="typing-text"></span><span id="cursor">|</span></p>
+        </div>
+        <div class="result-container"></div>
+    </div>
+    
+    <div class="container">
+    
+        <div class="group">
+            <textarea id="inputString" type="text" cols="30" rows="10" placeholder="Enter Your text here..."
+                oninput="checkBalanced()" required=""></textarea>
+            <div class="button-container">
+                <button onclick="checkOffendingPosition()">Find Offending Position</button>
+            </div>
+    
+        </div>
+    
+    
+        <script src="script.js"></script>
+</body>
+
+</html>

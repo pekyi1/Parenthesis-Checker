@@ -43,6 +43,7 @@
 
    .result-container span {
        font-size: 30px;
+      white-space: nowrap;
    }
 
    .result {

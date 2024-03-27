@@ -41,6 +41,9 @@
        align-items: center;
       white-space: nowrap;
       width: 250px;
+      font-size: 17x;
+      font-weight: 600;
+      color: red;
    }
 
    .result-container span {

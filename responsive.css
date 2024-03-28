@@ -1,0 +1,27 @@
+@media screen and (max-width: 550px){
+    svg text {
+        font-size: 2rem;
+    }
+    
+    #text-container{
+        margin-left: 1rem;
+    }
+    #font-change{
+        padding-left: 12rem;
+    }
+    #font-change .clearText{
+        position: absolute;
+    }
+    .group::before{
+        font-size: 2.5rem;
+    }
+    .group::after{
+        font-size: 2.5rem;
+        bottom: 12%;
+    }
+    textarea:focus
+    {
+        transform: scale(1.2);
+        transform: translateY(-5px);
+    }
+}

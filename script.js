@@ -1,3 +1,4 @@
+
 class ParenthesesChecker {
     constructor() {
         // Define Stack class within the constructor
@@ -39,7 +40,7 @@ class ParenthesesChecker {
         this.openingBrackets = ['(', '{', '['];
         this.closingBrackets = [')', '}', ']'];
     }
-
+   
     areParenthesesBalanced(str) {
         for (let char of str) {
             if (this.openingBrackets.includes(char)) {
@@ -90,8 +91,6 @@ function checkBalanced() {
         displayResult('');
         return;
     }
-    const elem = colorWrong(inputString, checker.findFirstOffendingPosition(inputString));
-    document.getElementById('inputString').innerHTML = elem;
     displayResult(
         isBalanced ? 'Parentheses are balanced' :
                      '&#9888; Parentheses are not balanced');
@@ -160,58 +159,47 @@ function eraseText() {
   setTimeout(eraseText, 100);  // Erasing speed (adjust as needed)
 }
 
-function colorWrong(str, index){
-    if(index < 0 || index >= str.length){
-        return str;
-    }
-    let coloredStr = ''
-    for (let i = 0; i < str.length; i++){
-        if (i === index){
-            coloredStr += `<span style="color: red;">${str[i]}</span>`;
-        } else {
-            coloredStr += str[i];
-        }
-    }
-     return coloredStr;
-}
-function generateRandomStringWithParentheses(length) {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const openParentheses = '(';
-    const closeParentheses = ')';
-    
-    let result = '';
-    let openCount = 0;
-    let closeCount = 0;
-
-    for (let i = 0; i < length; i++) {
-        // If the number of open parentheses is less than length/2, add an open parenthesis
-        if (openCount < length / 2) {
-            result += openParentheses;
-            openCount++;
-        }
-        // If the number of close parentheses is less than open parentheses, add a close parenthesis
-        else if (closeCount < openCount) {
-            result += closeParentheses;
-            closeCount++;
-        }
-        // If both open and close parentheses are balanced, add a random character
-        else {
-            result += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-    }
-
-    return result;
-}
 
 function generateRandomString() {
-    const length = Math.floor(Math.random() * 20) + 1;
-    const randomString = generateRandomStringWithParentheses(length);
-    document.getElementById('inputString').value = randomString;
+    const tests = [
+        "Programming languages rely on balanced parentheses for proper syntax (it's crucial).",
+        "Balanced parentheses make code readable and maintainable (like a well-structured sentence.",
+        "Unbalanced parentheses can cause syntax errors (which are frustrating to debug.",
+        "Sometimes it's hard to keep track of nested parentheses (especially in complex algorithms.",
+        "Always remember to close your parentheses (and brackets and curly braces)!",
+        "Balanced parentheses are like a well-structured sentence (clear and concise.",
+        "Unbalanced parentheses are like unfinished thoughts (confusing and frustrating.",
+        "Balancing parentheses is a fundamental skill in programming (master it!).",
+        "Nested parentheses can lead to complex code (but they're necessary sometimes).",
+        "In mathematics, parentheses denote the order of operations (PEMDAS.",
+        "Balanced parentheses are a sign of organized code (and an organized mind).",
+        "Functions often require balanced parentheses to be properly executed (a syntax requirement.",
+        "Expressions enclosed in parentheses are evaluated first (it's a precedence rule).",
+        "Unbalanced parentheses can derail an entire program (a single missing parenthesis can wreak havoc).",
+        "Nested parentheses can be visualized as layers of an onion (peeling them off one by one).",
+        "Balancing parentheses is like solving a puzzle (fitting the pieces together.",
+        "Programming without balanced parentheses is like driving without a steering wheel (you'll crash).",
+        "Regular expressions often involve nested parentheses (for capturing groups.",
+        "Balanced parentheses indicate clarity in code (they help other developers understand your intentions).",
+        "Error messages related to unbalanced parentheses can be cryptic (take care to avoid them.",
+        "Sometimes we forget to close parentheses (and that can lead to syntax errors.",
+        "Unbalanced parentheses can make code difficult to read (and even more difficult to debug.",
+        "Nested parentheses create complexity in code (it's like a maze sometimes.",
+        "Forgetting to close parentheses is a common mistake in programming (but easily fixable.",
+        "Balanced parentheses are the key to well-structured code (it's like the foundation of a building.",
+    ];
+    const sentences = tests;
+    const randomIndex = Math.floor(Math.random() * sentences.length);
+    document.getElementById('inputString').value = sentences[randomIndex];
     checkBalanced();
-
 }
+
 const clearText = () => {
     document.getElementById('inputString').value = '';
     displayResult('');
 }
+if(window.innerWidth < 550){
+    document.getElementById('text-container').style.display = 'none';
+}
 typeText();  // Start typing when the page loads
+

@@ -90,9 +90,12 @@ function checkBalanced() {
         displayResult('');
         return;
     }
+    const elem = colorWrong(inputString, checker.findFirstOffendingPosition(inputString));
+    document.getElementById('inputString').innerHTML = elem;
     displayResult(
         isBalanced ? 'Parentheses are balanced' :
                      '&#9888; Parentheses are not balanced');
+    return isBalanced;
 }
 
 
@@ -115,7 +118,7 @@ function displayResult(message) {
 setTimeout(function() {
   document.querySelector('.loading-screen').style.display = 'none';
   document.querySelector('.container').style.display = 'block';
-}, 6500);  // Change the delay time (in milliseconds) as needed
+}, 7500);  // Change the delay time (in milliseconds) as needed
 
 
 // code for typing text
@@ -137,7 +140,11 @@ function typeText() {
 
   setTimeout(typeText, 100);  // Typing speed (adjust as needed)
 }
-
+function changeFont(){
+    const font =  document.getElementById('fontSelect').value;
+    const text = document.getElementById('inputString');
+    text.style.fontFamily = font;
+ }
 function eraseText() {
   const typingSpan = document.getElementById('typing-text');
   typingSpan.textContent = texts[textIndex].substring(0, index);
@@ -153,4 +160,58 @@ function eraseText() {
   setTimeout(eraseText, 100);  // Erasing speed (adjust as needed)
 }
 
+function colorWrong(str, index){
+    if(index < 0 || index >= str.length){
+        return str;
+    }
+    let coloredStr = ''
+    for (let i = 0; i < str.length; i++){
+        if (i === index){
+            coloredStr += `<span style="color: red;">${str[i]}</span>`;
+        } else {
+            coloredStr += str[i];
+        }
+    }
+     return coloredStr;
+}
+function generateRandomStringWithParentheses(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const openParentheses = '(';
+    const closeParentheses = ')';
+    
+    let result = '';
+    let openCount = 0;
+    let closeCount = 0;
+
+    for (let i = 0; i < length; i++) {
+        // If the number of open parentheses is less than length/2, add an open parenthesis
+        if (openCount < length / 2) {
+            result += openParentheses;
+            openCount++;
+        }
+        // If the number of close parentheses is less than open parentheses, add a close parenthesis
+        else if (closeCount < openCount) {
+            result += closeParentheses;
+            closeCount++;
+        }
+        // If both open and close parentheses are balanced, add a random character
+        else {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+    }
+
+    return result;
+}
+
+function generateRandomString() {
+    const length = Math.floor(Math.random() * 20) + 1;
+    const randomString = generateRandomStringWithParentheses(length);
+    document.getElementById('inputString').value = randomString;
+    checkBalanced();
+
+}
+const clearText = () => {
+    document.getElementById('inputString').value = '';
+    displayResult('');
+}
 typeText();  // Start typing when the page loads

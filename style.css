@@ -1,14 +1,16 @@
-   @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 
    body {
        font-family: Arial, sans-serif;
        height: 100vh;
-       background-color: #e5e5f7;
+       position: relative;
+       background-color: #0f0f3e;
        opacity: 1;
-       background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 15px), repeating-linear-gradient(#00ff5e, #00ff5e55);
    }
 
    .container .group {
+       font-family: "Poppins", sans-serif;
        margin: auto;
        padding: 0;
        display: flex;
@@ -22,9 +24,10 @@
    }
 
 
-   button {
+   .button {
        padding: 8px 16px;
        margin: 0 5px;
+       font-family: "Raleway", sans-serif;
        cursor: pointer;
        color: #484B4F;
        font-weight: 600;
@@ -70,32 +73,51 @@
    }
 
 
-   textarea {
+   textarea{
+       position: relative;
        width: 80vw;
        height: 60vh;
        padding: 15px;
        font-size: 20px;
        border: none;
        border-width: 4px;
-       color: #484B4F;
+       color: whitesmoke;
        background: #f0f0f0;
        border-radius: .8rem;
        margin: .7rem 0;
        background: transparent;
        transition: .5s ease;
-       background-color: rgba(255, 255, 255, .15);
-       backdrop-filter: blur(4px);
+       backdrop-filter: blur(50%);
+       border-radius: 2rem;
+       outline: none;
+       background-color: rgba(255, 255, 255, 0.1);
    }
-
+   .group::before{
+    color: rgb(112, 219, 112);
+    font-size: 5rem;
+    font-weight: 500;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "{";
+   }
+   .group::after{
+    color: rgb(112, 219, 112);
+    font-size: 5rem;
+    font-weight: 500;
+    position: absolute;
+    content: "}";
+    bottom: 4%;
+    right: 0;
+   }
    textarea:focus {
        transform: scale(1.5);
        transform: translateY(-20px);
-       box-shadow: 0 0 1rem black;
-       outline: none;
+       box-shadow: 0 0 0.5rem black;
    }
 
 
-   @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+  
 
    svg {
        font-family: "Russo One", sans-serif;
@@ -174,7 +196,7 @@
    }
 
    #text-container {
-       margin-left: 20px;
+       margin-left: 10rem;
        display: flex;
        flex-direction: row;
        align-items: center;
@@ -182,9 +204,36 @@
    }
 
    #text-container p {
-       font-family: Georgia, 'Times New Roman', Times, serif;
+       font-family: "Raleway", 'Times New Roman', Times, serif;
        font-size: 40px;
-       color: #007F73;
+       color: rgb(112, 219, 112);
        font-weight: 700;
        font-style: italic;
    }
+#font-change{
+    margin-top: 4rem;
+    margin-right: 8rem;
+}
+#font-change select{
+    padding: 10px;
+    font-size: 1.0rem;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(112, 219, 112);
+    color: black;
+}
+#font-change .clearText{
+    font-size: 0.8rem;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 2px;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    color: black;
+}
+#font-change option{ 
+    background-color: #007F73;
+    color: white;
+}

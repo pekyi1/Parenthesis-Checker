@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    
+
     <div class="loading-screen">
         <div class="wrapper">
             <svg>
@@ -38,23 +38,29 @@
                 Clear Text
             </button>
         </div>
-       
+
     </div>
-    
+
     <div class="container">
-    
+
         <div class="group">
-            <textarea  style="font-family: 'Raleway';" id="inputString" type="text" cols="30" rows="10" placeholder="Enter Your text here..."
-                oninput="checkBalanced()" required=""></textarea>
+            <textarea style="font-family: 'Raleway';" id="inputString" type="text" cols="30" rows="10"
+                placeholder="Enter Your text here..." oninput="checkBalanced()" required=""></textarea>
             <div class="button-container">
                 <button class="button" onclick="checkOffendingPosition()">Find Offending Position</button>
                 <button class="button" onclick="generateRandomString()">Generate Random String</button>
             </div>
-            <div class="result-container"></div>
+
         </div>
+        <footer class="footer">
+            <p>&#9888;</p>
+            <div class="footer-text">
+                <div class="result-container"></div>
+            </div>
+        </footer>
         <script src="script.js">
         </script>
-        
+
 </body>
 
 </html>

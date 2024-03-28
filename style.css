@@ -19,6 +19,7 @@
    }
 
    .header {
+    height: 120px;
        display: flex;
        justify-content: space-between;
    }
@@ -29,16 +30,16 @@
        margin: 0 5px;
        font-family: "Raleway", sans-serif;
        cursor: pointer;
-       color: #484B4F;
-       font-weight: 600;
+       color: black;
+       font-weight: 700;
        border: none;
        border-radius: 10px;
        height: 50px;
        background: linear-gradient(60deg, #00ff5e, #2ee885, rgb(40, 249, 172));
-       box-shadow: 0 0 1rem black;
+       box-shadow: 0 0 0.4rem rgb(112, 219, 112);
    }
 
-   .result-container {
+   /*.result-container {
        display: flex;
        flex-direction: row;
        align-items: center;
@@ -52,18 +53,12 @@
    .result-container span {
        font-size: 30px;
       white-space: nowrap;
-   }
+   }*/
 
    .result {
-       position: relative;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       width: 200px;
-       border-color: black;
-       margin-top: 20px;
        animation: myAnim 0.5s ease 0s 1 normal forwards;
    }
+   
 
    @keyframes myAnim {
        0% {
@@ -116,7 +111,7 @@
    textarea:focus {
        transform: scale(1.5);
        transform: translateY(-20px);
-       box-shadow: 0 0 0.5rem black;
+       box-shadow: 0 0 1.0rem rgb(112, 219, 112);
    }
 
 
@@ -131,14 +126,14 @@
    svg text {
        animation: stroke 6s infinite alternate;
        stroke-width: 2;
-       stroke: #484B4F;
+       stroke: #0f0f3e;
        font-size: 60px;
    }
 
    @keyframes stroke {
        0% {
            fill: rgba(72, 75, 79, 0);
-           stroke: rgba(72, 75, 79, 1);
+           stroke: #0f0f3e;
            stroke-dashoffset: 25%;
            stroke-dasharray: 0 50%;
            stroke-width: 2;
@@ -146,17 +141,17 @@
 
        70% {
            fill: rgba(72, 75, 79, 0);
-           stroke: rgba(72, 75, 79, 1);
+           stroke: #0f0f3e;
        }
 
        80% {
            fill: rgba(72, 75, 79, 0);
-           stroke: rgba(72, 75, 79, 1);
+           stroke: #0f0f3e;
            stroke-width: 3;
        }
 
        100% {
-           fill: rgba(72, 75, 79, 1);
+           fill: #0f0f3e;
            stroke: rgba(72, 75, 79, 0);
            stroke-dashoffset: -25%;
            stroke-dasharray: 50% 0;
@@ -240,4 +235,27 @@
 #font-change option{ 
     background-color: #007F73;
     color: white;
+}
+
+.footer {
+    margin-top: 10px;
+    border-radius: 5px;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0.2 5%;
+    background: #484b4f;
+}
+.footer p{
+    margin-left: 9px;
+    color: white;
+    font-size: 30px;
+}
+
+.footer .footer-text{
+    color: white;
+    margin-left: 15px;
+    text-align: end;
 }

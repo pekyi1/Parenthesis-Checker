@@ -198,5 +198,8 @@ const clearText = () => {
     document.getElementById('inputString').value = '';
     displayResult('');
 }
+if(window.innerWidth < 550){
+    document.getElementById('text-container').style.display = 'none';
+}
 typeText();  // Start typing when the page loads
 

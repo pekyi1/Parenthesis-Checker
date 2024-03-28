@@ -93,7 +93,7 @@ function checkBalanced() {
     }
     displayResult(
         isBalanced ? 'Parentheses are balanced' :
-                     '&#9888; Parentheses are not balanced');
+                     'Parentheses are not balanced');
     return isBalanced;
 }
 
